@@ -1,0 +1,58 @@
+new Vue({
+    el: '#app',
+    data:{
+        vida_paladino: 100,
+        vida_orc: 100,
+        
+    },
+    methods: {
+        ataque(){
+            this.dano_paladino = Math.floor(Math.random()*10)+1
+            this.dano_orc = Math.floor(Math.random()*10)+3
+            this.vida_orc -= this.dano_paladino
+            this.vida_paladino -= this.dano_orc
+        },
+        ataqueEspecial() {
+            this.dano_paladino = Math.floor(Math.random()*10)+5
+            this.dano_orc = Math.floor(Math.random()*10)+3
+            this.vida_orc -= this.dano_paladino
+            this.vida_paladino -= this.dano_orc
+        },
+        curar(){
+            this.curar_paladino = Math.floor(Math.random()*10)+5
+            this.dano_orc = Math.floor(Math.random()*10)+3
+            this.vida_paladino -= this.dano_orc
+            this.vida_paladino += this.curar_paladino 
+        },
+        desistir (){
+            setTimeout(() => {
+                this.vida_paladino = 100
+                this.vida_orc = 100
+            }, 100);
+        },
+    },
+    watch: {
+        vida_paladino(){
+            if(this.vida_paladino < 0){
+                return this.vida_paladino = 0}
+            else if(this.vida_paladino > 100){
+                return this.vida_paladino = 100
+            }
+        },
+        vida_orc(){
+            if(this.vida_orc < 0){
+                return this.vida_orc = 0}
+            },
+    },
+    computed: {
+            resultado(){
+                if(this.vida_paladino == 0){
+                    return this.resultado = 'ORC VENCEU'
+                }
+                else if(this.vida_orc == 0){
+                    return this.resultado = "PALADINO GANHOU"
+                }
+            },
+              
+        }    
+})
