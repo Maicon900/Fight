@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ceviche+One&display=swap" rel="stylesheet" type='text/css'>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="Treino.css">
+    <title>Treino</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <div class="personagens">
+            <h2>PALADINO</h2>
+            <h2>ORC</h2>
+            </div>
+            <div class="barra">
+                <div class="dano_paladino" >
+                    <div class="hit_paladino" :style="{width: vida_paladino + '%',}"></div>
+                    <div class="cor_paladino" :class="estilo_paladino" :style="{width: vida_paladino + '%',}">{{ vida_paladino + '%' }}</div>
+                </div>
+                <div class="dano_orc" >
+                    <div class="hit_orc" :style="{width: vida_orc + '%',}"></div>
+                    <div class="cor_orc" :class="estilo_orc" :style="{width: vida_orc + '%',}">{{ vida_orc + '%' }}</div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div v-if="fim" :class="ataques" class="habilidades">
+            <button @click="ataque" @click="acao = !acao" style="background-color: rgb(255, 115, 0);">ATAQUE</button>
+            <button  @click="ataqueEspecial" style="background-color: rgb(241, 238, 28);">ATAQUE ESPECIAL</button>
+            <button @click="curar" style="background-color: rgb(0, 255, 119);">CURAR</button>
+            <button  v-if="fim" @click="resetar" style="background-color: rgba(233, 44, 44, 0.904);">RESETAR</button>
+        </div>
+        <button class="novo_jogo" v-if="!fim" @click="resetar">NOVO JOGO</button>
+            <div class="mostrar">
+                <p>{{ resultado }}</p>
+            </div>
+        <hr>
+        <div class="estatisticas">
+            <h2 v-if="acao" style="background-color: rgb(21, 98, 221);">O DANO DO PALADINO FOI DE {{ dano_paladino }}</h2>
+            <h2 v-if="acao" style="background-color: rgb(142, 230, 10);">O DANO DO PALADINO FOI DE {{ curar_paladino }}</h2>
+            <h2 v-if="acao" style="background-color: rgb(218, 14, 14);">A CURA DO PALADINO FOI DE {{ dano_orc }}</h2>
+        </div>
+    </div>
+    <script src="Treino.js"></script>
+</body>
+</html>
