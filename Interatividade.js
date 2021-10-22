@@ -36,6 +36,7 @@ new Vue({
                 this.vida_orc = 100
                 this.acao = false
                 this.cura = false
+                this.fim = false
                 }, 10);
             },
         },
