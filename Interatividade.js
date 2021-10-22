@@ -4,8 +4,9 @@ new Vue({
         vida_paladino: 100,
         vida_orc: 100,  
         reset: 'RESETAR',
+        fim: false,
         acao: false,
-        fim: true,
+        cura: false,
     },
     methods: {
         ataque(){
@@ -13,27 +14,30 @@ new Vue({
             this.dano_orc = Math.floor(Math.random()*10)+4
             this.vida_orc -= this.dano_paladino
             this.vida_paladino -= this.dano_orc
-            this.acao = true        
+            this.acao = true      
         },
         ataqueEspecial() {
             this.dano_paladino = Math.floor(Math.random()*10)+8
             this.dano_orc = Math.floor(Math.random()*10)+4
             this.vida_orc -= this.dano_paladino
             this.vida_paladino -= this.dano_orc
+            this.acao = true
         },
         curar(){
             this.curar_paladino = Math.floor(Math.random()*10)+6
             this.dano_orc = Math.floor(Math.random()*10)+4
             this.vida_paladino -= this.dano_orc
             this.vida_paladino += this.curar_paladino 
+            this.cura = true
         },
         resetar (){
             setTimeout(() => {
                 this.vida_paladino = 100
                 this.vida_orc = 100
-                this.fim = true
+                this.acao = false
+                this.cura = false
                 }, 10);
-        },
+            },
         },
     watch: {
         vida_paladino(){
@@ -92,12 +96,12 @@ new Vue({
             },
             ataques(){
                 if(this.vida_orc == 0 && this.vida_paladino == 0){
-                    return this.fim = false
+                    return this.fim = true
                 }else if(this.vida_paladino == 0){
-                    return this.fim = false
+                    return this.fim = true
                 }
                 else if(this.vida_orc == 0){
-                    return this.fim = false
+                    return this.fim = true
                 }
             },
             
