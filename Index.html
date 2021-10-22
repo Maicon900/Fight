@@ -32,21 +32,21 @@
             </div>
         </div>
         <hr>
-        <div v-if="fim" :class="ataques" class="habilidades">
+        <div v-if="!fim" :class="ataques" class="habilidades">
             <button @click="ataque" @click="acao = !acao" style="background-color: rgb(255, 115, 0);">ATAQUE</button>
-            <button  @click="ataqueEspecial" style="background-color: rgb(241, 238, 28);">ATAQUE ESPECIAL</button>
-            <button @click="curar" style="background-color: rgb(0, 255, 119);">CURAR</button>
-            <button  v-if="fim" @click="resetar" style="background-color: rgba(233, 44, 44, 0.904);">RESETAR</button>
+            <button  @click="ataqueEspecial" @click="acao = !acao" style="background-color: rgb(241, 238, 28);">ATAQUE ESPECIAL</button>
+            <button @click="curar" @click="cura = !cura" style="background-color: rgb(0, 255, 119);">CURAR</button>
+            <button  v-if="!fim" @click="resetar" style="background-color: rgba(233, 44, 44, 0.904);">RESETAR</button>
         </div>
-        <button class="novo_jogo" v-if="!fim" @click="resetar">NOVO JOGO</button>
+        <button class="novo_jogo" v-if="fim" @click="resetar">NOVO JOGO</button>
             <div class="mostrar">
                 <p>{{ resultado }}</p>
             </div>
         <hr>
         <div class="estatisticas">
-            <h2 v-if="acao" style="background-color: rgb(21, 98, 221);">O DANO DO PALADINO FOI DE {{ dano_paladino }}</h2>
-            <h2 v-if="acao" style="background-color: rgb(142, 230, 10);">O DANO DO PALADINO FOI DE {{ curar_paladino }}</h2>
-            <h2 v-if="acao" style="background-color: rgb(218, 14, 14);">A CURA DO PALADINO FOI DE {{ dano_orc }}</h2>
+            <h2 v-if="acao" style="background-color: rgb(21, 98, 221);">O PALADINO ATACOU COM {{ dano_paladino }} DE DANO</h2>
+            <h2 v-if="acao" style="background-color: rgb(218, 14, 14);">PALADINO RECEBEU {{ dano_orc }} DE DANO DO ORC</h2>
+            <h2 v-if="cura" style="background-color: rgb(142, 230, 10);">PALADINO TOMOU SUA POÇÃO E CUROU {{ curar_paladino }} DE VIDA</h2> 
         </div>
     </div>
     <script src="Treino.js"></script>
