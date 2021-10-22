@@ -1,0 +1,123 @@
+body {
+        font-family: Ceviche One;      
+}
+.personagens{
+    font-size: 25px;
+    justify-content: space-between;
+    margin-left: 400px;
+    display: flex;
+    width: 500px;
+}
+.barra {
+    margin-left: 345px;
+    width: 50%;
+    justify-content: space-between;
+    display: flex;
+}
+.dano_paladino {
+    margin-top: -15px;
+    height: 30px;
+    width: 250px;
+    border: 3px solid black;
+    background-color: grey;
+    border-radius: 5%;
+}
+.dano_orc {
+    margin-top: -15px;
+    margin-left: 15px;
+    height: 30px;
+    width: 250px;
+    border: 3px solid black;
+    background-color: grey;
+    border-radius: 5%;
+}
+.hit_paladino {
+    height: 30px;
+    width: 250px;
+    transition: width .3s linear;
+    transition-delay: 0.3s;
+    background-color: rgba(251, 0, 0, 0.50);
+}
+.hit_orc {
+    height: 30px;
+    width: 250px;
+    transition: width .3s linear;
+    transition-delay: 0.3s;
+    background-color: rgba(245, 0, 0, 0.50);
+}
+.cor_paladino {
+    font-size: 30px;
+    margin-top: -30px;
+    height: 30px;
+    width: 250px;
+    transition: width .3s linear;
+}
+.cor_orc {
+    font-size: 30px;
+    margin-top: -30px;
+    height: 30px;
+    width: 250px;
+    transition: width .3s linear;
+}
+.c1 {
+    
+    background-color: rgb(31, 253, 42);
+}
+.c2 {
+    
+    background-color: rgb(255, 210, 64);
+}
+.c3 {
+    
+    background-color: rgb(255, 159, 81);
+}
+.c4 {
+    
+    background-color: rgb(255, 82, 52);
+}
+.c5 {
+    height: 30px;
+    width: 250px;
+    background-color: rgb(255, 52, 52);
+}
+.habilidades {
+    margin-left: 280px;
+    width: 500px;
+    justify-content: space-between;
+    display: flex;
+    
+}
+button {
+    font-size: 30px;
+    font-family: Ceviche One;
+    border-radius: 5%;
+    margin-left: 40px;
+    margin-right: 50px;
+    border: 2px solid black;
+}
+.novo_jogo{
+    margin-left: 45%;
+}
+.mostrar {
+    font-size: 50px;
+    text-align: center;
+}
+.dados {
+    text-align: center;
+    font-size: 15px;
+}
+.dados h2{
+    border: 1px solid black;
+    border-radius: 15%;
+}
+.estatisticas {
+    width: 500px;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 450px;
+    
+}
+.estatisticas h2{
+    
+    border: 4px solid black;
+}
